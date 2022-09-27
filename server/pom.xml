@@ -12,16 +12,7 @@
 	<description>An application for creating easy, integrated travel plans.</description>
 
 	<modules>
-
+		<module>web</module>
 	</modules>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>

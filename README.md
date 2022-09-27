@@ -6,7 +6,7 @@ Note: The application will eventually implement data pipelines to calculate the 
 
 ### Tech Stack
 
-* Angular 14.2.1
+* Angular 14.2.3
 * Node 16.13.0
 * NPM 8.17.0
 * TypeScript 4.7.4
