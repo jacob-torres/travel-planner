@@ -1,0 +1,7 @@
+<div class="container">
+  <p>Enter your name and click the button below to get a customized welcome message.</p>
+  <input type="text" id="name" aria-label="name" [(ngModel)]="name">
+  <button class="btn btn-success" (click)="getWelcomeMessage()">CLICK</button>
+
+  <div class="bg-success container" *ngIf="welcomeMessageFromService">{{ message}}</div>
+</div>

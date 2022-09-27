@@ -1,13 +1,13 @@
-package com.app.web;
+package com.app.welcome;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WebApplication {
+public class WelcomeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebApplication.class, args);
+		SpringApplication.run(WelcomeApplication.class, args);
 	}
 
 }

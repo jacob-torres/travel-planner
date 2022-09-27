@@ -12,7 +12,7 @@
 	<description>An application for creating easy, integrated travel plans.</description>
 
 	<modules>
-		<module>web</module>
+
 	</modules>
 
 </project>

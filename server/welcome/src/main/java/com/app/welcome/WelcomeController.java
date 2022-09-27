@@ -1,14 +1,15 @@
-package com.app.web;
+package com.app.welcome;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.app.welcome.WelcomeBean;
+
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-public class WebController {
-
+public class WelcomeController {
     // Test server-client connection with the welcome component
     @GetMapping(path = "/welcome")
     public String welcome() {
@@ -21,4 +22,9 @@ public class WebController {
         return String.format("Welcome %s!", name);
     }
 
+    // Get welcome bean rather than plain string
+    @GetMapping(path = "/welcomebean/{name}")
+    public WelcomeBean welcomeBean(@PathVariable String name) {
+        return new WelcomeBean(String.format("Welcome %s!", name));
+    }
 }
