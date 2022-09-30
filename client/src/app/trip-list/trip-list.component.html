@@ -1,0 +1,45 @@
+<div class="container">
+  <h2>{{ username }}'s Trips</h2>
+
+  <div class="alert alert-success" *ngIf="message">{{ message }}</div>
+
+  <button class="btn btn-primary">Create New Trip</button>
+
+  <div class="container" *ngIf="trips">
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Starting Place</th>
+          <th>Destination</th>
+          <th>View Trip</th>
+          <th>Update Trip</th>
+          <th>Delete Trip</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let trip of trips">
+          <td>{{ trip.tripName }}</td>
+          <td>{{ trip.startDate }}</td>
+          <td>{{ trip.endDate }}</td>
+          <td>{{ trip.startingPlace }}</td>
+          <td>{{ trip.destination }}</td>
+          <td>
+            <button class="btn">View</button>
+          </td>
+          <td>
+            <button class="btn">Update</button>
+          </td>
+          <td>
+            <button class="btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

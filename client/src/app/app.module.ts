@@ -7,11 +7,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WelcomeService } from './service/welcome.service';
+import { TripListComponent } from './trip-list/trip-list.component';
+import { TripComponent } from './trip/trip.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    TripListComponent,
+    TripComponent
   ],
   imports: [
     BrowserModule,
