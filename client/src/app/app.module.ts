@@ -9,13 +9,15 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { WelcomeService } from './service/welcome.service';
 import { TripListComponent } from './trip-list/trip-list.component';
 import { TripComponent } from './trip/trip.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     TripListComponent,
-    TripComponent
+    TripComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
