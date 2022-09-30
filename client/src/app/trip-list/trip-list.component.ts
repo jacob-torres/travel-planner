@@ -30,8 +30,21 @@ export class TripListComponent implements OnInit {
     this.service.getTrips(this.username).subscribe(
       response => {
         this.trips = response;
+        this.message = "Successfully refreshed trip list.";
       }
     );
+  }
+
+  addTrip() {
+    this.router.navigate(['trips', -1]);
+  }
+
+  viewTrip(id: number) {
+    this.router.navigate(['trips', id]);
+  }
+
+  updateTrip(id: number) {
+    this.router.navigate(['trips', id]);
   }
 
   deleteTrip(id: number) {
@@ -41,14 +54,6 @@ export class TripListComponent implements OnInit {
         this.refreshTripList();
       }
     );
-  }
-
-  updateTrip(id: number) {
-    this.router.navigate(['trips', id]);
-  }
-
-  addTrip() {
-    this.router.navigate(['trips', -1]);
   }
 
 }

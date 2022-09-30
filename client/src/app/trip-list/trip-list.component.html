@@ -3,7 +3,7 @@
 
   <div class="alert alert-success" *ngIf="message">{{ message }}</div>
 
-  <button class="btn btn-primary">Create New Trip</button>
+  <button class="row btn-primary" (click)="addTrip()">Create New Trip</button>
 
   <div class="container" *ngIf="trips">
 

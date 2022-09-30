@@ -27,6 +27,7 @@ export class TripComponent implements OnInit {
   id: number;
   username: string;
   trip: Trip;
+  isEditing: boolean;
 
   constructor(
     private service: TripService,
@@ -49,21 +50,42 @@ export class TripComponent implements OnInit {
           this.trip = data;
         }
       );
+      this.isEditing = false;
     }
+    else {
+      this.isEditing = true;
+    }
+  }
+
+  backToTripList() {
+    this.router.navigate(['trips']);
+    this.isEditing = false;
+  }
+
+  toggleEditing() {
+    this.isEditing = !this.isEditing;
+  }
+
+  deleteTrip() {
+    this.service.deleteTrip(this.id, this.username).subscribe(
+      response => {
+        this.backToTripList();
+      }
+    );
   }
 
   saveTrip() {
     if (this.id == -1) {
       this.service.createTrip(this.username, this.trip).subscribe(
         response => {
-          this.router.navigate(['trips']);
+          this.backToTripList();
         }
       );
     }
     else {
       this.service.updateTrip(this.id, this.username, this.trip).subscribe(
         response => {
-          this.router.navigate(['trips']);
+          this.backToTripList();
         }
       );
     }

@@ -4,8 +4,9 @@ import { TripListComponent } from './trip-list/trip-list.component';
 import { TripComponent } from './trip/trip.component';
 
 const routes: Routes = [
-  {path: 'trips', component: TripListComponent},
-  {path: 'trips/:id', component: TripComponent}
+  { path: '', redirectTo: '/trips', pathMatch: 'full' },
+  { path: 'trips', component: TripListComponent },
+  { path: 'trips/:id', component: TripComponent }
 ];
 
 @NgModule({

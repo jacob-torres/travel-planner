@@ -1,6 +1,40 @@
-<div class="container">
+<div class="container" *ngIf="!isEditing">
   <h2>Trip: {{ trip.tripName }}</h2>
   <p>This trip to {{ trip.destination }} is scheduled for {{ trip.startDate }} to {{ trip.endDate }}.</p>
-  <button class="btn">Update Trip</button>
-  <button class="btn">Delete Trip</button>
+
+  <button class="btn" (click)="toggleEditing()">Update Trip</button>
+  <button class="btn" (click)="deleteTrip()">Delete Trip</button>
+</div>
+
+<div class="container" *ngIf="isEditing">
+  <h2>Trip Details</h2>
+  <form>
+    <div class="form-group">
+      <label for="tripName">Trip Name</label>
+      <input type="text" id="tripName" [defaultValue]="trip.tripName" required>
+    </div>
+
+    <div class="form-control">
+      <label for="startDate">Start Date</label>
+      <input type="date" id="startDate" [defaultValue]="trip.startDate" required>
+    </div>
+
+    <div class="form-control">
+      <label for="endDate">End Date</label>
+      <input type="date" id="endDate" [defaultValue]="trip.endDate" required>
+    </div>
+
+    <div class="form-control">
+      <label for="startingPlace">Starting Place</label>
+      <input type="text" id="startingPlace" [defaultValue]="trip.startingPlace" required>
+    </div>
+
+    <div class="form-control">
+      <label for="destination">Destination</label>
+      <input type="text" id="destination" [defaultValue]="trip.destination" required>
+    </div>
+
+    <button class="btn btn-success" (click)="saveTrip()">Save</button>
+    <button class="btn btn-alert" (click)="backToTripList()">Cancel</button>
+  </form>
 </div>
