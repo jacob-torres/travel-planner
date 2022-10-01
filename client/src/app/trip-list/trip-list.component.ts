@@ -30,7 +30,6 @@ export class TripListComponent implements OnInit {
     this.service.getTrips(this.username).subscribe(
       response => {
         this.trips = response;
-        this.message = "Successfully refreshed trip list.";
       }
     );
   }

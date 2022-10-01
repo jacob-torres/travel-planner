@@ -1,6 +1,6 @@
 package com.app.tripmanager.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,8 +20,8 @@ public class Trip {
     private Long tripId;
     private String tripUsername;
     private String tripName;
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private String startingPlace;
     private String destination;
 
@@ -33,8 +33,8 @@ public class Trip {
     }
 
     public Trip(Long tripId, String tripUsername, String tripName,
-            Date startDate, Date endDate, String startingPlace, String destination) {
-        super();
+            LocalDate startDate, LocalDate endDate, String startingPlace, String destination) {
+                super();
         this.tripId = tripId;
         this.tripUsername = tripUsername;
         this.tripName = tripName;
@@ -71,19 +71,19 @@ public class Trip {
         this.tripName = tripName;
     }
 
-    public Date getStartDate() {
+    public LocalDate getStartDate() {
         return this.startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDate getEndDate() {
         return this.endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 
@@ -105,6 +105,39 @@ public class Trip {
 
     /********************************************************************************/
     // Methods
+
+    /*
+     * Calculates a unique hash code for identifying the trip.
+     * 
+     * @return hash
+     */
+    @Override
+    public int hashCode() {
+        final int prime = 29;
+        int hash = 7;
+
+        hash = prime * hash + (int) (tripId ^ (tripId >>> 32));
+        hash = prime * hash + (tripUsername == null ? 0 : tripUsername.hashCode());
+        hash = prime * hash + (tripName == null ? 0 : tripName.hashCode());
+        return hash;
+    }
+
+    /*
+     * Evaluates whether or not the trip object
+     * is equal to another trip object using the ID.
+     * 
+     * @param object
+     * @return boolean
+     */
+    @Override
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null) return false;
+        if (getClass() != object.getClass()) return false;
+
+        Trip otherTrip = (Trip) object;
+        return tripId == otherTrip.tripId;
+    }
 
     /*
      * Formats the trip into a string.
