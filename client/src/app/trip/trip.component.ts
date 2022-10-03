@@ -38,6 +38,7 @@ export class TripComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.username = this.route.snapshot.params['username'];
+    this.isEditing = this.route.snapshot.queryParamMap.has('edit');
 
     this.trip = new Trip(
       this.id, this.username, '',
@@ -50,26 +51,21 @@ export class TripComponent implements OnInit {
           this.trip = data;
         }
       );
-      this.isEditing = false;
     }
-    else {
-      this.isEditing = true;
-    }
-  }
-
-  backToTripList() {
-    this.router.navigate(['trips']);
-    this.isEditing = false;
   }
 
   toggleEditing() {
     this.isEditing = !this.isEditing;
   }
 
+  goBackToTripList() {
+    this.router.navigate(['trips']);
+  }
+
   deleteTrip() {
     this.service.deleteTrip(this.id, this.username).subscribe(
       response => {
-        this.backToTripList();
+        this.goBackToTripList();
       }
     );
   }
@@ -78,14 +74,14 @@ export class TripComponent implements OnInit {
     if (this.id == -1) {
       this.service.createTrip(this.username, this.trip).subscribe(
         response => {
-          this.backToTripList();
+          this.goBackToTripList();
         }
       );
     }
     else {
       this.service.updateTrip(this.id, this.username, this.trip).subscribe(
         response => {
-          this.backToTripList();
+          this.goBackToTripList();
         }
       );
     }

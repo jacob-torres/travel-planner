@@ -43,7 +43,10 @@ export class TripListComponent implements OnInit {
   }
 
   updateTrip(id: number) {
-    this.router.navigate(['trips', id]);
+    this.router.navigate(
+      ['trips', id],
+      { queryParams: { 'edit': true }}
+    );
   }
 
   deleteTrip(id: number) {

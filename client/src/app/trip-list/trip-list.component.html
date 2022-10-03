@@ -29,13 +29,13 @@
           <td>{{ trip.startingPlace }}</td>
           <td>{{ trip.destination }}</td>
           <td>
-            <button class="btn">View</button>
+            <button class="btn" (click)="viewTrip(trip.tripId)">View</button>
           </td>
           <td>
-            <button class="btn">Update</button>
+            <button class="btn" (click)="updateTrip(trip.tripId)">Update</button>
           </td>
           <td>
-            <button class="btn">Delete</button>
+            <button class="btn" (click)="deleteTrip(trip.tripId)">Delete</button>
           </td>
         </tr>
       </tbody>
